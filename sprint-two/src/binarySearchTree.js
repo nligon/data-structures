@@ -43,7 +43,25 @@ BinarySearchTree.prototype.insert = function(value) {
 
 BinarySearchTree.prototype.contains = function(value) {
 
+  var searchTree = function(node, value) {
+    console.log('node.value and value:', node.value, value);
+    if (node.value === value) {
+      return true;
+    }
+    if (value < node.value) {
+      if (node.left !== null) {
+        return searchTree(node.left, value);
+      }
+    } else {
+      if (node.right !== null) {
+        return searchTree(node.right, value);
+      }
+    }
+    return false;
+  };
+  return searchTree(this, value);
 
+};
 
 BinarySearchTree.prototype.depthFirstLog = function(cb) {
 
