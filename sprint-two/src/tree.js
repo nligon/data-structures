@@ -3,7 +3,8 @@ var Tree = function(value) {
   newTree.value = value;
 
   // your code here
-  newTree.children = null;  // fix me
+  newTree.children = [];
+  _.extend(newTree, treeMethods);
 
   return newTree;
 };
@@ -12,14 +13,25 @@ var treeMethods = {};
 
 treeMethods.addChild = function(value) {
   // your code here
-  newTree.children = null;  // fix me
+  this.children.push(Tree(value)); // fix me
 };
 
 treeMethods.contains = function(target) {
+  var found = false;
+  var searchTree = function(node) {
+
+    if (node.value === target) {
+      found = true;
+    }
+
+    if (node.children.length > 0) {
+      for (var i = 0; i < node.children.length; i++) {
+        searchTree(node.children[i]);
+      }
+    }
+
+  };
+
+  searchTree(this);
+  return found;
 };
-
-
-
-/*
- * Complexity: What is the time complexity of the above functions?
- */
