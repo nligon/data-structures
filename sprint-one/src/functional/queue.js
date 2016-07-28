@@ -9,7 +9,7 @@ var Queue = function() {
   someInstance.dequeue = function() {
     var result = storage['0'];
     for (var i = 1; i < someInstance.size(); i++) {
-      storage[i - 1] = storage[i]; 
+      storage[i - 1] = storage[i];
     }
     delete storage[someInstance.size() - 1];
     return result;
@@ -21,3 +21,16 @@ var Queue = function() {
 
   return someInstance;
 };
+
+var functionalQueue = function() {
+  for (var i = 0; i < 100; i++) {
+    var queue = Queue();
+    for (var j = 0; j < 100; j++) {
+      queue.enqueue(j);
+    }
+    for (var j = 0; j < 100; j++) {
+      queue.dequeue(j);
+    }
+  }
+};
+functionalQueue();

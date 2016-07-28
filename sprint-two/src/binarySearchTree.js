@@ -25,7 +25,6 @@ BinarySearchTree.prototype.insert = function(value) {
 
 BinarySearchTree.prototype.contains = function(value) {
   var searchTree = function(node, value) {
-    // console.log('node.value and value:', node.value, value);
     if (node.value === value) {
       return true;
     }
@@ -55,7 +54,3 @@ BinarySearchTree.prototype.depthFirstLog = function(cb) {
   };
   callBackNodes(this, cb);
 };
-
-/*
- * Complexity: What is the time complexity of the above functions?
- */

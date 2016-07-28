@@ -20,4 +20,15 @@ var stackMethods = {
   }
 };
 
-
+var functionalSharedStack = function () {
+  for (var i = 0; i < 100; i++) {
+    var stack = Stack();
+    for (var j = 0; j < 100; j++) {
+      stack.push(j);
+    }
+    for (var j = 0; j < 100; j++) {
+      stack.pop();
+    }
+  }
+};  
+functionalSharedStack();

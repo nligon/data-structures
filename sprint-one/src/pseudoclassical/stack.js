@@ -15,3 +15,16 @@ Stack.prototype.pop = function () {
 Stack.prototype.size = function () {
   return Object.keys(this.storage).length;
 };
+
+var pseudoclassicalStack = function () {
+  for (var i = 0; i < 100; i++) {
+    var stack = new Stack();
+    for (var j = 0; j < 100; j++) {
+      stack.push(j);
+    }
+    for (var j = 0; j < 100; j++) {
+      stack.pop();
+    }
+  }
+};  
+pseudoclassicalStack();

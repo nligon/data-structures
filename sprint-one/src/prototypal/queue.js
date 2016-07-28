@@ -20,3 +20,16 @@ var queueMethods = {
     return Object.keys(this.storage).length;
   }
 };
+
+var prototypalQueue = function () {
+  for (var i = 0; i < 100; i++) {
+    var queue = Queue();
+    for (var j = 0; j < 100; j++) {
+      queue.enqueue(j);
+    }
+    for (var j = 0; j < 100; j++) {
+      queue.dequeue();
+    }
+  }
+};  
+prototypalQueue();
