@@ -5,22 +5,7 @@ var BinarySearchTree = function(value) {
 };
 
 BinarySearchTree.prototype.insert = function(value) {
-  console.log('********************** NEW EXECUTION ********************');
-
-  // if (!this.value) {
-  //   this.value = node;
-  // }
-
-  // if tree is less than value
-  // is left null? assign tree(node) to left.
-  // else, recurse on left.
-  // else (tree is greater than value)
-  // is right null? assign tree(node) to right.
-  // if defined, recurse on right.
-
-  // if value less, go left
   var insertTree = function(node, value) {
-
     if (value < node.value) {
       if (node.left === null) {
         node.left = new BinarySearchTree(value);
@@ -35,16 +20,12 @@ BinarySearchTree.prototype.insert = function(value) {
       }
     }
   };
-
   insertTree(this, value);
 };
 
-
-
 BinarySearchTree.prototype.contains = function(value) {
-
   var searchTree = function(node, value) {
-    console.log('node.value and value:', node.value, value);
+    // console.log('node.value and value:', node.value, value);
     if (node.value === value) {
       return true;
     }
@@ -60,13 +41,20 @@ BinarySearchTree.prototype.contains = function(value) {
     return false;
   };
   return searchTree(this, value);
-
 };
 
 BinarySearchTree.prototype.depthFirstLog = function(cb) {
-
+  var callBackNodes = function(node, cb) {
+    cb(node.value);
+    if (node.left !== null) {
+      callBackNodes(node.left, cb);
+    }
+    if (node.right !== null) {
+      callBackNodes(node.right, cb);
+    }
+  };
+  callBackNodes(this, cb);
 };
-
 
 /*
  * Complexity: What is the time complexity of the above functions?
