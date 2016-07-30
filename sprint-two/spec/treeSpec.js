@@ -69,7 +69,6 @@ describe('tree', function() {
     tree.addChild(1);
     tree.addChild(3);
     tree.children[0].addChild(7);
-
     tree.traverse(function(value, node) {
       node.value = value * 2;
     });
