@@ -1,16 +1,19 @@
 //Make your binarySearchTree rebalance as soon as the max depth is more than twice the minimum depth
 
-var BinarySearchTree = function(value) {
+var BinarySearchTree = function(value, parent) {
   this.value = value;
   this.left = null;
   this.right = null;
+  this.parent = parent || null;
+  this.counter = 0;
 };
+// BinarySearchTree.counter = 0;
 
-BinarySearchTree.prototype.insert = function(value) {
+BinarySearchTree.prototype.insert = function(value, parent) {
   var insertTree = function(node, value) {
     if (value < node.value) {
       if (node.left === null) {
-        node.left = new BinarySearchTree(value);
+        node.left = new BinarySearchTree(value, node);
       } else {
         insertTree(node.left, value);
       }
@@ -70,3 +73,4 @@ BinarySearchTree.prototype.breadthFirstLog = function (cb) {
     cb(queue.shift().value);
   }
 };
+

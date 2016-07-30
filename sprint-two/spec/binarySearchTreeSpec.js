@@ -47,4 +47,14 @@ describe('binarySearchTree', function() {
     binarySearchTree.breadthFirstLog(func);
     expect(array).to.eql([5, 3, 7, 6, 8]);
   });
+
+  it('should have a working "counter" property', function() {
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    console.log(binarySearchTree);
+    BinarySearchTree.counter = 0;
+    expect(binarySearchTree.contains(7)).to.equal(true);
+    expect(binarySearchTree.contains(8)).to.equal(false);
+  });
 });
