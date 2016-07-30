@@ -51,9 +51,8 @@ describe('binarySearchTree', function() {
   it('should have a working "counter" property', function() {
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
+    binarySearchTree.insert(4);
     binarySearchTree.insert(7);
-    console.log(binarySearchTree);
-    BinarySearchTree.counter = 0;
     expect(binarySearchTree.contains(7)).to.equal(true);
     expect(binarySearchTree.contains(8)).to.equal(false);
   });
