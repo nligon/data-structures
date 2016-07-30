@@ -45,3 +45,13 @@ treeMethods.removeFromParent = function() {
     }
   }
 };
+
+treeMethods.traverse = function (cb) {
+  var inner = function (value, node) {
+    cb(node.value, node);
+    for (var i = 0; i < node.children.length; i++) {
+      inner(node.children[i].value, node.children[i]);
+    }
+  };
+  inner(this.value, this);
+};

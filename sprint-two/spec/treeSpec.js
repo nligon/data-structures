@@ -65,4 +65,17 @@ describe('tree', function() {
     expect(tree.children[0]).to.equal(undefined);
   });
 
+  it('should traverse the tree, executing a callback on each node\'s value', function() {
+    tree.addChild(1);
+    tree.addChild(3);
+    tree.children[0].addChild(7);
+
+    tree.traverse(function(value, node) {
+      node.value = value * 2;
+    });
+    expect(tree.contains(2)).to.be.true;
+    expect(tree.contains(6)).to.be.true;
+    expect(tree.contains(14)).to.be.true;
+  });
+
 });
