@@ -7,7 +7,11 @@ describe('hashTable', function() {
     ['Dr.', 'Sunshine'],
     ['John', 'Resig'],
     ['Brendan', 'Eich'],
-    ['Alan', 'Turing']
+    // ['more', 'people'],
+    // ['if', 'needed'],
+    // ['Ala4n', 'Tur5ing'],
+    // ['A6lan', 'Turi7ng'],
+    ['Alan', 'Turing'],
   ];
 
   beforeEach(function() {
@@ -61,16 +65,13 @@ describe('hashTable', function() {
     _.each(people, function(person) {
       var firstName = person[0];
       var lastName = person[1];
-      // debugger;
       hashTable.insert(firstName, lastName);
-      // debugger;
       expect(hashTable.retrieve(firstName)).to.equal(lastName);
-      // debugger;
-    });
+    }); 
     expect(hashTable._limit).to.equal(16);
   });
 
-  xit('should halve in size when needed', function() {
+  it('should halve in size when needed', function() {
     _.each(people, function(person) {
       var firstName = person[0];
       var lastName = person[1];
